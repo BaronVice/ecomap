@@ -1,0 +1,228 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 123731968 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3536), pid=43216, tid=49668
+#
+# JRE version:  (19.0.2+7) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (19.0.2+7-44, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Users\BaronVice\AppData\Local\JetBrains\IntelliJ IDEA 2022.3.2\lib\idea_rt.jar=52287:C:\Users\BaronVice\AppData\Local\JetBrains\IntelliJ IDEA 2022.3.2\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.eco.ecomap.EcomapApplication
+
+Host: AMD Ryzen 5 5500U with Radeon Graphics         , 12 cores, 7G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3374)
+Time: Sat Apr 27 17:28:36 2024 RTZ 7 (s 11 , 64 bit Build 22621 (10.0.22621.3374) elapsed time: 0.031295 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002d0bafba4c0):  JavaThread "Unknown thread" [_thread_in_vm, id=49668, stack(0x000000fa14500000,0x000000fa14600000)]
+
+Stack: [0x000000fa14500000,0x000000fa14600000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6ee21a]
+V  [jvm.dll+0x85765e]
+V  [jvm.dll+0x85904e]
+V  [jvm.dll+0x859703]
+V  [jvm.dll+0x28298f]
+V  [jvm.dll+0x6eb009]
+V  [jvm.dll+0x6dfbaa]
+V  [jvm.dll+0x3573f6]
+V  [jvm.dll+0x35ee56]
+V  [jvm.dll+0x3b541e]
+V  [jvm.dll+0x3b564f]
+V  [jvm.dll+0x32c9ea]
+V  [jvm.dll+0x32d89e]
+V  [jvm.dll+0x821780]
+V  [jvm.dll+0x3c2661]
+V  [jvm.dll+0x801f51]
+V  [jvm.dll+0x44ae8f]
+V  [jvm.dll+0x44c811]
+C  [jli.dll+0x5287]
+C  [ucrtbase.dll+0x29333]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5aa48]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff83b15d048, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002d0bb015f00 WorkerThread "GC Thread#0" [stack: 0x000000fa14600000,0x000000fa14700000] [id=49860]
+  0x000002d0bb025b00 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000fa14700000,0x000000fa14800000] [id=53784]
+  0x000002d0bb026530 WorkerThread "G1 Conc#0" [stack: 0x000000fa14800000,0x000000fa14900000] [id=43092]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff83a91d427]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002d0bafb5d20] Heap_lock - owner thread: 0x000002d0bafba4c0
+
+Heap address: 0x000000008a800000, size: 1880 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x000000008a800000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff83ad26649]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.022 Loaded shared library C:\Program Files\Java\jdk-19\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff614de0000 - 0x00007ff614df0000 	C:\Program Files\Java\jdk-19\bin\java.exe
+0x00007ff8a0010000 - 0x00007ff8a0226000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff89ec60000 - 0x00007ff89ed24000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff89d330000 - 0x00007ff89d6d7000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff89db80000 - 0x00007ff89dc91000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff894530000 - 0x00007ff894548000 	C:\Program Files\Java\jdk-19\bin\jli.dll
+0x00007ff89fe60000 - 0x00007ff89ff12000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff89eb20000 - 0x00007ff89ebc7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff89fb00000 - 0x00007ff89fba8000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff89d9c0000 - 0x00007ff89d9e8000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff89f930000 - 0x00007ff89fa45000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff894510000 - 0x00007ff89452b000 	C:\Program Files\Java\jdk-19\bin\VCRUNTIME140.dll
+0x00007ff89e6d0000 - 0x00007ff89e87e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff894180000 - 0x00007ff894413000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3235_none_270f74e173860f98\COMCTL32.dll
+0x00007ff89d850000 - 0x00007ff89d876000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff89fe30000 - 0x00007ff89fe59000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff89da60000 - 0x00007ff89db79000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff89dca0000 - 0x00007ff89dd3a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff894980000 - 0x00007ff89498a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff89ddc0000 - 0x00007ff89ddf1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff88f0c0000 - 0x00007ff88f0cc000 	C:\Program Files\Java\jdk-19\bin\vcruntime140_1.dll
+0x00007ff854a30000 - 0x00007ff854abe000 	C:\Program Files\Java\jdk-19\bin\msvcp140.dll
+0x00007ff83a5e0000 - 0x00007ff83b2a0000 	C:\Program Files\Java\jdk-19\bin\server\jvm.dll
+0x00007ff8957a0000 - 0x00007ff8957d4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff880790000 - 0x00007ff880799000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff89fbb0000 - 0x00007ff89fc21000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff89c340000 - 0x00007ff89c358000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff88cf70000 - 0x00007ff88cf7a000 	C:\Program Files\Java\jdk-19\bin\jimage.dll
+0x00007ff89ace0000 - 0x00007ff89af13000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff89ed40000 - 0x00007ff89f0c8000 	C:\WINDOWS\System32\combase.dll
+0x00007ff89ea40000 - 0x00007ff89eb17000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff893d70000 - 0x00007ff893da2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff89d940000 - 0x00007ff89d9b9000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff88fa00000 - 0x00007ff88fa0e000 	C:\Program Files\Java\jdk-19\bin\instrument.dll
+0x00007ff889590000 - 0x00007ff8895b6000 	C:\Program Files\Java\jdk-19\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3235_none_270f74e173860f98;C:\Program Files\Java\jdk-19\bin\server
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Users\BaronVice\AppData\Local\JetBrains\IntelliJ IDEA 2022.3.2\lib\idea_rt.jar=52287:C:\Users\BaronVice\AppData\Local\JetBrains\IntelliJ IDEA 2022.3.2\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.eco.ecomap.EcomapApplication
+java_class_path (initial): C:\Users\BaronVice\Desktop\ecomap\build\classes\java\main;C:\Users\BaronVice\Desktop\ecomap\build\resources\main;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.18.30\f195ee86e6c896ea47a1d39defbe20eb59cd149d\lombok-1.18.30.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mapstruct\mapstruct-processor\1.5.3.Final\dce418bedafd71ff8dd2cef15006c0fee788b073\mapstruct-processor-1.5.3.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-jpa\3.1.4\f01d5f2ecbfef3159879c4a8450b49620ffb96c\spring-boot-starter-data-jpa-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-mongodb\3.1.4\957854a690b5ae667510667599ef5ad29476aae4\spring-boot-starter-data-mongodb-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-web\3.1.4\a0da0751207173c93f9e92e74cae430b53544576\spring-boot-starter-web-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-validation\3.1.4\cc8321cfdf6c916d53f693a394a11e1a9b009220\spring-boot-starter-validation-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.github.javafaker\javafaker\1.0.2\be0ff271b1208416822db4438864df47f90af92f\javafaker-1.0.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mapstruct\mapstruct\1.5.3.Final\5f5d063858957ef086858bc3d003f702082297f3\mapstruct-1.5.3.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-aop\3.1.4\1842a0506c99583b5ce11525cbd3d52e719a3f8\spring-boot-starter-aop-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-jdbc\3.1.4\d1c52a3392180c7925d32e5594a873db6c72239b\spring-boot-starter-jdbc-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.hibernate.orm\hibernate-core\6.2.9.Final\a24ca4a5c003b6d0d9e005c6226f84cf4169bfeb\hibernate-core-6.2.9.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-jpa\3.1.4\c51bbed97c35a0c6abced4854db85a5a5b216540\spring-data-jpa-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-aspects\6.0.12\f9f903318add53a20c0e33ead1b16abd669543f7\spring-aspects-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter\3.1.4\8a615e53a9f45eecc4821917b1423daa68afcf19\spring-boot-starter-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mongodb\mongodb-driver-sync\4.9.1\38dfe9593bc7c268b1bc735d3ce682af6cdb6fa\mongodb-driver-sync-4.9.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-mongodb\4.1.4\8777507de95bb13e360d871f42ceb36b64343b0\spring-data-mongodb-4.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-json\3.1.4\2dafafeb1ca78678a970947c51def69723c7442c\spring-boot-starter-json-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-tomcat\3.1.4\b8f55488574671d085f8d31c137c6f6d8d79cc24\spring-boot-starter-tomcat-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-webmvc\6.0.12\c7cf897d23da555a20e570d170f8f1541b04564d\spring-webmvc-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-web\6.0.12\89a20bbd7c1f973dc246b1d790b34e0b3e28e74d\spring-web-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-el\10.1.13\22c8845f7528334905c582e48a3eeefab616b0a5\tomcat-embed-el-10.1.13.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.hibernate.validator\hibernate-validator\8.0.1.Final\e49e116b3d3928060599b176b3538bb848718e95\hibernate-validator-8.0.1.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.12.0\c6842c86792ff03b9f1d1fe2aab8dc23aa6c6f0e\commons-lang3-3.12.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.yaml\snakeyaml\1.33\2cd0a87ff7df953f810c344bdf2fe3340b954c69\snakeyaml-1.33.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.yaml\snakeyaml\1.33\6d364e099cf5a67d4c6366200f3e9b1e2864567d\snakeyaml-1.33-android.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.github.mifmif\generex\1.0.2\b378f873b4e8d7616c3d920e2132cb1c87679600\generex-1.0.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-aop\6.0.12\ba7ecdbdc2abaf172d49692b8110f65ecd2d250c\spring-aop-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjweaver\1.9.20\da562407e43f74c0f8f5f5df4065d85ec1736d01\aspectjweaver-1.9.20.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.zaxxer\HikariCP\5.0.1\a74c7f0a37046846e88d54f7cb6ea6d565c65f9c\HikariCP-5.0.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-jdbc\6.0.12\cf14ce5078ab4b69b760ac91b2b9f23dab1e4457\spring-jdbc-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.persistence\jakarta.persistence-api\3.1.0\66901fa1c373c6aff65c13791cc11da72060a8d6\jakarta.persistence-api-3.1.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.transaction\jakarta.transaction-api\2.0.1\51a520e3fae406abb84e2e1148e6746ce3f80a1a\jakarta.transaction-api-2.0.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-context\6.0.12\f1964518e07796b2fdc1b9be2108485ffe1b4566\spring-context-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-orm\6.0.12\174d73f69d878fd7ddeef9a25213d8932692a768\spring-orm-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-commons\3.1.4\7b16d91221c7f9492f63a99e97a1d907f6bf540c\spring-data-commons-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-tx\6.0.12\b4e997baac7dd14593f3e4f815e3646279e9a63f\spring-tx-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-beans\6.0.12\dfa53afbf1ab65f36c60333443ed1109ed331504\spring-beans-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-core\6.0.12\a55e70359371b03ee29dacd75c3b40d0baf3a656\spring-core-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4-runtime\4.10.1\10839f875928f59c622d675091d51a43ea0dc5f7\antlr4-runtime-4.10.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.annotation\jakarta.annotation-api\2.1.1\48b9bda22b091b1f48b13af03fe36db3be6e1ae3\jakarta.annotation-api-2.1.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\2.0.9\7cf2726fdcfbc8610f9a71fb3ed639871f315340\slf4j-api-2.0.9.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-autoconfigure\3.1.4\ae53253f6330787f8b77a13aa90d6514597a20d0\spring-boot-autoconfigure-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot\3.1.4\7a0a6349e28227a93f2b4efde897e87b3343bf3a\spring-boot-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-logging\3.1.4\e3533d7b6e2e9b5ca9b05dce2a9a2504aad5b889\spring-boot-starter-logging-3.1.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mongodb\mongodb-driver-core\4.9.1\eae9e4ce359af23bed2208f7d6c28be236288d30\mongodb-driver-core-4.9.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mongodb\bson\4.9.1\49ee664d02bd6ee138e677f1113934c24e7b42c7\bson-4.9.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-expression\6.0.12\9283ad418f06f918e834b1981998a5f62a05b355\spring-expression-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jsr310\2.15.2\30d16ec2aef6d8094c5e2dce1d95034ca8b6cb42\jackson-datatype-jsr310-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.module\jackson-module-parameter-names\2.15.2\75f8d2788db20f6c587c7a19e94fb6248c314241\jackson-module-parameter-names-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jdk8\2.15.2\66a50e089cfd2f93896b9b6f7a734cea7bcf2f31\jackson-datatype-jdk8-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.15.2\9353b021f10c307c00328f52090de2bdb4b6ff9c\jackson-databind-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-websocket\10.1.13\540a79df9699435e4f7cb8983daab272d29d093f\tomcat-embed-websocket-10.1.13.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-core\10.1.13\6909967f2ed6c323108c2cc7f20586d6f7eb6455\tomcat-embed-core-10.1.13.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\io.micrometer\micrometer-observation\1.11.4\1aa2f6ba1dae42c403543bd14ea5f302d7ed6d85\micrometer-observation-1.11.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.validation\jakarta.validation-api\3.0.2\92b6631659ba35ca09e44874d3eb936edfeee532\jakarta.validation-api-3.0.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.jboss.logging\jboss-logging\3.5.3.Final\c88fc1d8a96d4c3491f55d4317458ccad53ca663\jboss-logging-3.5.3.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml\classmate\1.5.1\3fe0bed568c62df5e89f4f174c101eab25345b6c\classmate-1.5.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\dk.brics.automaton\automaton\1.11-8\6ebfa65eb431ff4b715a23be7a750cbc4cc96d0f\automaton-1.11-8.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.springframework\spring-jcl\6.0.12\44a1d1d105063d4eb9c5dc705245ef6fa4162520\spring-jcl-6.0.12.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-classic\1.4.11\54450c0c783e896a1a6d88c043bd2f1daba1c382\logback-classic-1.4.11.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-to-slf4j\2.20.0\d37f81f8978e2672bc32c82712ab4b3f66624adc\log4j-to-slf4j-2.20.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.slf4j\jul-to-slf4j\2.0.9\9ef7c70b248185845f013f49a33ff9ca65b7975\jul-to-slf4j-2.0.9.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.15.2\4724a65ac8e8d156a24898d50fd5dbd3642870b8\jackson-annotations-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.15.2\a6fe1836469a69b3ff66037c324d75fc66ef137c\jackson-core-2.15.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\io.micrometer\micrometer-commons\1.11.4\6dfbbc07ecad294bffacff0648d6eaa4de78f332\micrometer-commons-1.11.4.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-core\1.4.11\2f9f280219a9922a74200eaf7138c4c17fb87c0f\logback-core-1.4.11.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.20.0\1fe6082e660daf07c689a89c94dc0f49c26b44bb\log4j-api-2.20.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.postgresql\postgresql\42.6.0\7614cfce466145b84972781ab0079b8dea49e363\postgresql-42.6.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.checkerframework\checker-qual\3.31.0\eeefd4af42e2f4221d145c1791582f91868f99ab\checker-qual-3.31.0.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.hibernate.common\hibernate-commons-annotations\6.0.6.Final\77a5f94b56d49508e0ee334751db5b78e5ccd50c\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\io.smallrye\jandex\3.0.5\c548a4871b552292dbdd65409d3fda145c8925c1\jandex-3.0.5.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy\1.14.8\505d7d8937ff00cc55db79723e26c94069b87d66\byte-buddy-1.14.8.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\4.0.3\93af25be25b2c92c83e0ce61cb8b3ed23568f316\jaxb-runtime-4.0.3.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.xml.bind\jakarta.xml.bind-api\4.0.1\ca2330866cbc624c7e5ce982e121db1125d23e15\jakarta.xml.bind-api-4.0.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.inject\jakarta.inject-api\2.0.1\4c28afe1991a941d7702fe1362c365f0a8641d1e\jakarta.inject-api-2.0.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-core\4.0.3\e9093b4a82069a1d78ee9a3233ca387bca88861f\jaxb-core-4.0.3.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\jakarta.activation\jakarta.activation-api\2.1.2\640c0d5aff45dbff1e1a1bc09673ff3a02b1ba12\jakarta.activation-api-2.1.2.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.mongodb\bson-record-codec\4.9.1\af61c792b268302acfc833197345c606111306b7\bson-record-codec-4.9.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.eclipse.angus\angus-activation\2.0.1\eaafaf4eb71b400e4136fc3a286f50e34a68ecb7\angus-activation-2.0.1.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\txw2\4.0.3\47b8fe31c6d1a3382203af919400527389e01e9c\txw2-4.0.3.jar;C:\Users\BaronVice\.gradle\caches\modules-2\files-2.1\com.sun.istack\istack-commons-runtime\4.1.2\18ec117c85f3ba0ac65409136afa8e42bc74e739\istack-commons-runtime-4.1.2.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 123731968                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1971322880                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1971322880                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Users\BaronVice\.jdks\openjdk-20.0.1
+PATH=C:\Python312\Scripts\;C:\Python312\;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python311\Scripts\;C:\Program Files\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\WireGuard\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\TDM-GCC-64\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\TDM-GCC\bin;C:\Program Files\dotnet\;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\BaronVice\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.2\bin;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin;;C:\Users\BaronVice\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\BaronVice\AppData\Local\JetBrains\IntelliJ IDEA 2022.3.2\bin;;C:\Users\BaronVice\.jdks\openjdk-20.0.1;C:\Users\BaronVice\AppData\Roaming\Composer\vendor\bin;C:\Users\BaronVice\AppData\Roaming\npm;C:\Users\BaronVice\AppData\Local\GitHubDesktop\bin
+USERNAME=BaronVice
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
+TMP=C:\Users\BARONV~1\AppData\Local\Temp
+TEMP=C:\Users\BARONV~1\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3374)
+OS uptime: 10 days 22:08 hours
+Hyper-V role detected
+
+CPU: total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 23 model 104 stepping 1 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, rdpid
+
+Memory: 4k page, system-wide physical 7514M (227M free)
+TotalPageFile size 20668M (AvailPageFile size 39M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 59M, peak: 177M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (19.0.2+7-44) for windows-amd64 JRE (19.0.2+7-44), built on 2022-11-30T18:02:09Z by "mach5one" with MS VC++ 17.1 (VS2022)
+
+END.
